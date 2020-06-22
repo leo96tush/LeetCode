@@ -19,7 +19,7 @@ public:
 
 
 /*
-Bitmasking Solution
+HashMap Solution
 Time Complexity : O(n)
 Space Complexity : O(n)
 */
