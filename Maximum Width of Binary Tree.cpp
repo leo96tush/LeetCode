@@ -26,11 +26,6 @@ public:
         }
     }
 
-    long long height(TreeNode* node) {
-        if (!node) return 0 ;
-        return 1 + max(height(node->left), height(node->right)) ;
-    }
-
     int widthOfBinaryTree(TreeNode* root) {
 
         if (!root) return 0 ;
