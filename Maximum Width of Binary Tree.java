@@ -15,8 +15,12 @@
  */
 class Solution {
 
+    //HashMap for the ID of each TreeNode
+    //If parent_ID = x , left_child_ID = 2*x , right_child_ID = 2*x+1
     HashMap<TreeNode, Integer> ID = new HashMap<>();
 
+
+    //Function to create ID for each TreeNode
     public void ID_Generator(TreeNode node) {
         if (node == null) return ;
         if (node.left != null) {
@@ -30,6 +34,11 @@ class Solution {
         return ;
     }
 
+
+    //Calculating the width at each level by taking
+    //leftmost TreeNode as minimum and rightmost TreeNode as maximum
+    //Difference between the minimum and maximum
+    //will denote the width as each level
     public int widthOfBinaryTree(TreeNode root) {
 
         if (root == null) return 0 ;
@@ -53,6 +62,7 @@ class Solution {
             }
             max_width = Math.max(max_width, right - left + 1) ;
         }
+        //Returning the maximum width
         return max_width ;
     }
 }
