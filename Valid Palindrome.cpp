@@ -19,7 +19,6 @@ public:
 
         while ( i <= j ) {
             if ( dummy[i] != dummy[j] ) {
-                cout << i << endl ;
                 return false ;
             }
             i++ ; j-- ;
