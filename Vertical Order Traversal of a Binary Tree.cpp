@@ -35,7 +35,6 @@ public:
 
         for ( vector<int> vec : my_dummy ) {
             int a = vec[0] , b = vec[1] , c = vec[2] ;
-            cout << a << " " << b << " " << c << endl ;
             res[a + abs(min_level)].push_back(c) ;
         }
 
