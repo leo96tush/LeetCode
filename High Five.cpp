@@ -41,3 +41,47 @@ public:
         return output ;
     }
 };
+
+
+
+Solution-2
+
+class Solution {
+public:
+    vector<vector<int>> highFive(vector<vector<int>>& items) {
+        
+        map< int, priority_queue< int, vector<int>> > marks_mappings ;
+
+        for( auto item: items){
+            marks_mappings[item[0]].push(item[1]) ;
+        }
+
+        vector<vector<int>> output ;
+
+        for( auto marks_mapping: marks_mappings ){
+            int student_id = marks_mapping.first ;
+            priority_queue<int, vector<int>> marks_set = marks_mapping.second ;
+
+            int marks_sum = 0 ;
+            int count = 0 ;
+            for( int i=0 ; i<5 ; ++i ){
+                if( count >= 5 ){
+                    break ;
+                }
+                cout << student_id << " " << marks_set.top() << endl ;
+                marks_sum += marks_set.top() ;
+                marks_set.pop() ;
+                count++ ;
+            }
+
+            vector<int> temp_vec ;
+            temp_vec.push_back(student_id) ;
+            temp_vec.push_back(marks_sum/5) ;
+
+            output.push_back(temp_vec) ;
+
+        }
+
+        return output ;
+    }
+};
