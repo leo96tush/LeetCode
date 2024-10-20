@@ -61,3 +61,31 @@ public:
         return res ;
     }
 };
+
+
+/*
+HashMap Solution
+Time Complexity : O(n)
+Space Complexity : O(n)
+*/
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> index_mapping ;
+
+        vector<int> output ;
+
+        for(int i=0 ; i<nums.size() ; i++){
+            if(index_mapping.find(target - nums[i]) == index_mapping.end()){
+                index_mapping[nums[i]] = i ;
+            }
+            else{
+                output.push_back(i) ;
+                output.push_back(index_mapping[target - nums[i]]) ;
+            }
+        }
+
+        return output ;
+
+    }
+};
