@@ -45,3 +45,41 @@ public:
         return max_count;
     }
 };
+
+
+
+
+/*
+### Complexity Analysis
+1. Time Complexity: O(n)
+   - Adding numbers to the HashSet takes O(n).
+   - Each number is processed at most twice:
+     - Once to check if it's the start of a sequence.
+     - Once to count the sequence.
+
+2. Space Complexity: O(n)
+   - The HashSet stores all numbers in the array.
+*/
+
+
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        unordered_set<int> nums_set(nums.begin(), nums.end()) ;
+        int longest =  0 ;
+        for( int num: nums_set ) {
+            if ( !nums_set.count(num-1) ){
+                int curr_num = num ;
+                int curr = 1 ;
+                while( nums_set.count(num+1) ){
+                    num++ ;
+                    curr++ ;
+                }
+                longest = max(longest, curr) ;
+            }
+        }
+        return longest ;
+
+    }
+};
