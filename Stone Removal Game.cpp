@@ -8,8 +8,6 @@ public:
 	string helper(int total, int curr_num, string player) {
 		int other_num = curr_num - 1 ;
 
-		cout << total << " " << curr_num << " " << player << endl ;
-
 		if( player == "Alice"  && total < curr_num ) return "Bob" ;
 		else if ( player == "Bob" && total < curr_num ) return "Alice" ;
 		else if ( player == "Alice" && total >= curr_num ) return helper(total - curr_num, other_num, "Bob") ;
